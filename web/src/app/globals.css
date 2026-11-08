@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/*
+ * Paleta provisional (los colores de marca aún no están definidos).
+ * Para cambiarla basta con editar estas variables.
+ */
+:root {
+  --crema: #faf7f2;
+  --arena: #f1ebe1;
+  --tinta: #1d2b2a;
+  --tinta-suave: #4b5a58;
+  --marca: #0f5c5a;
+  --marca-oscura: #0a403f;
+  --marca-clara: #d9ebe8;
+  --acento: #e0835e;
+  --linea: #e3dccf;
+}
+
+@theme inline {
+  --color-crema: var(--crema);
+  --color-arena: var(--arena);
+  --color-tinta: var(--tinta);
+  --color-tinta-suave: var(--tinta-suave);
+  --color-marca: var(--marca);
+  --color-marca-oscura: var(--marca-oscura);
+  --color-marca-clara: var(--marca-clara);
+  --color-acento: var(--acento);
+  --color-linea: var(--linea);
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-fraunces);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--crema);
+  color: var(--tinta);
+}
+
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
