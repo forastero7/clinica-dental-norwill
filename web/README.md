@@ -11,6 +11,16 @@ npm run build   # compilación de producción
 npm run lint
 ```
 
+## Publicación
+
+Cada push a `main` o a `claude/affectionate-carson-gufil2` que toque `web/` compila el sitio como exportación estática (`web/out`) y lo publica en GitHub Pages con `.github/workflows/pages.yml`. La URL es `https://<usuario>.github.io/<repo>/`.
+
+Para probar en local con el mismo prefijo:
+
+```bash
+PAGES_BASE_PATH=/clinica-dental-norwill npm run build
+```
+
 ## Dónde editar
 
 | Qué | Archivo |

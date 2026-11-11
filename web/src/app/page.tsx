@@ -9,8 +9,6 @@ import { Tratamientos } from "@/components/Tratamientos";
 import { Ubicacion } from "@/components/Ubicacion";
 import { clinica, doctor, horarioSchema, tratamientos } from "@/content/clinica";
 
-export const ensureStatic = "navigation";
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Dentist",

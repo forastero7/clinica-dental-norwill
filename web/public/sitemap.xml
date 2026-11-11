@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PENDIENTE: actualizar el dominio cuando sea definitivo (ver clinica.sitioUrl). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://clinicanorwill.pe/</loc></url>
+  <url><loc>https://clinicanorwill.pe/politica-de-privacidad/</loc></url>
+  <url><loc>https://clinicanorwill.pe/libro-de-reclamaciones/</loc></url>
+</urlset>
