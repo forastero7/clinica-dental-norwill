@@ -1,29 +1,31 @@
 import { preguntas } from "@/content/clinica";
+import { IconoMas } from "./iconos";
 
 export function Preguntas() {
   return (
-    <section id="preguntas" className="border-t border-linea bg-arena/60">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:py-28">
+    <section id="preguntas" className="bg-light">
+      <div className="contenedor grid gap-10 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:py-28">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-acento">Preguntas frecuentes</p>
-          <h2 className="mt-3 font-display text-4xl font-medium tracking-tight text-tinta sm:text-5xl">
-            Antes de tu primera visita
-          </h2>
+          <p className="eyebrow">Preguntas frecuentes</p>
+          <h2 className="titulo-seccion mt-4">Antes de tu primera visita</h2>
+          <p className="mt-5 leading-relaxed text-muted">
+            ¿Tienes otra duda? Escríbenos por WhatsApp y te respondemos dentro del horario de atención.
+          </p>
         </div>
 
-        <div className="divide-y divide-linea border-y border-linea">
+        <div className="space-y-3">
           {preguntas.map((q) => (
-            <details key={q.p} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold text-tinta [&::-webkit-details-marker]:hidden">
+            <details
+              key={q.p}
+              className="group rounded-2xl bg-white shadow-soft ring-1 ring-line/70 transition-shadow open:shadow-lift"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 font-display text-base font-semibold text-dark sm:text-lg [&::-webkit-details-marker]:hidden">
                 {q.p}
-                <span
-                  aria-hidden="true"
-                  className="grid size-8 shrink-0 place-items-center rounded-full border border-linea text-marca transition-transform group-open:rotate-45"
-                >
-                  +
+                <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary-soft text-primary-strong transition-all duration-300 group-open:rotate-45 group-open:bg-primary group-open:text-dark">
+                  <IconoMas className="size-4" />
                 </span>
               </summary>
-              <p className="mt-3 max-w-2xl leading-relaxed text-tinta-suave">{q.r}</p>
+              <p className="max-w-2xl px-6 pb-6 leading-relaxed text-muted">{q.r}</p>
             </details>
           ))}
         </div>

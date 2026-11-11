@@ -1,84 +1,81 @@
 import { clinica, doctor, horarioResumen } from "@/content/clinica";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { IconoCheck, IconoDiente, IconoPin, IconoReloj, IconoWhatsapp } from "./iconos";
-
-const garantias = [
-  "Te atiende el mismo especialista en cada cita",
-  "Presupuesto por escrito antes de empezar",
-  "Protocolos de bioseguridad en cada atención",
-];
+import { IconoPin, IconoReloj, IconoWhatsapp } from "./iconos";
+import { LogoCompleto } from "./Marca";
 
 export function Portada() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:pb-24 lg:pt-16">
+    <section className="relative overflow-hidden bg-white">
+      {/* Arco decorativo que retoma el círculo del logotipo */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-48 -top-40 hidden size-[44rem] sm:block rounded-full border-[18px] border-primary/10"
+      />
+
+      <div className="contenedor relative grid items-center gap-14 pb-20 pt-12 lg:grid-cols-[1.1fr_1fr] lg:gap-10 lg:pb-28 lg:pt-20">
         <div>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-linea bg-white/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-marca">
-            <span className="size-1.5 rounded-full bg-acento" />
-            {clinica.nombreCompleto} · {clinica.direccion.ciudad}
-          </p>
-          <h1 className="font-display text-[2.6rem] font-medium leading-[1.05] tracking-tight text-tinta sm:text-6xl">
-            Tu sonrisa, atendida <em className="font-normal text-marca">con calma</em> y sin apuros.
+          <p className="eyebrow">Consultorio dental · {clinica.direccion.ciudad}</p>
+          <h1 className="isolate mt-6 font-display text-[2.35rem] font-semibold leading-[1.1] tracking-tight text-dark sm:text-5xl lg:text-[3.25rem]">
+            Tu sonrisa, atendida{" "}
+            <span className="relative whitespace-nowrap text-primary-strong">
+              con calma
+              <span aria-hidden="true" className="absolute inset-x-0 bottom-1 -z-10 h-3 rounded-full bg-primary/35 sm:h-4" />
+            </span>{" "}
+            y sin apuros.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-tinta-suave">
-            Odontología general y estética con un trato cercano. Te explicamos cada opción antes de empezar y
-            reservas tu cita por WhatsApp en minutos.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            Odontología general y estética con un trato cercano. Te explicamos cada opción antes de empezar y reservas
+            tu cita por WhatsApp en minutos.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-marca px-7 py-4 text-base font-semibold text-crema shadow-sm transition-colors hover:bg-marca-oscura"
-            >
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn-primario">
               <IconoWhatsapp className="size-5" />
               Reservar por WhatsApp
             </a>
-            <a
-              href="#tratamientos"
-              className="inline-flex items-center justify-center rounded-full border border-tinta/15 bg-white/50 px-7 py-4 text-base font-semibold text-tinta transition-colors hover:border-marca hover:text-marca"
-            >
+            <a href="#tratamientos" className="btn-secundario">
               Ver tratamientos
             </a>
           </div>
 
-          <ul className="mt-10 space-y-3">
-            {garantias.map((g) => (
-              <li key={g} className="flex items-start gap-3 text-[0.95rem] text-tinta">
-                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-marca-clara text-marca">
-                  <IconoCheck className="size-3.5" />
-                </span>
-                {g}
-              </li>
-            ))}
-          </ul>
+          <dl className="mt-10 flex flex-col gap-4 border-t border-line pt-8 text-sm sm:flex-row sm:gap-10">
+            <div className="flex items-center gap-3">
+              <span className="grid size-10 place-items-center rounded-full bg-primary-soft text-primary-strong">
+                <IconoReloj className="size-5" />
+              </span>
+              <div>
+                <dt className="font-display text-xs font-semibold uppercase tracking-wider text-muted">Horario</dt>
+                <dd className="font-medium text-dark">{horarioResumen}</dd>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="grid size-10 place-items-center rounded-full bg-primary-soft text-primary-strong">
+                <IconoPin className="size-5" />
+              </span>
+              <div>
+                <dt className="font-display text-xs font-semibold uppercase tracking-wider text-muted">Ubicación</dt>
+                <dd className="font-medium text-dark">
+                  {clinica.direccion.distrito}, {clinica.direccion.ciudad}
+                </dd>
+              </div>
+            </div>
+          </dl>
         </div>
 
-        {/* Composición visual provisional: reemplazar por foto del consultorio cuando esté disponible */}
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-marca">
-            <div className="absolute -right-16 -top-16 size-72 rounded-full bg-marca-oscura/60" />
-            <div className="absolute -bottom-24 -left-10 size-80 rounded-full bg-acento/25" />
-            <IconoDiente className="absolute left-1/2 top-[42%] size-48 -translate-x-1/2 -translate-y-1/2 text-crema/85 sm:size-56" />
-            <p className="absolute inset-x-0 top-8 text-center text-xs font-medium uppercase tracking-[0.2em] text-crema/60">
-              Foto del consultorio próximamente
-            </p>
+        <div className="relative mx-auto w-full max-w-md lg:max-w-[30rem]">
+          <div className="relative grid aspect-square place-items-center rounded-[2.5rem] bg-primary-soft shadow-soft ring-1 ring-primary/20">
+            <div aria-hidden="true" className="absolute inset-5 rounded-[2rem] border border-white/80" />
+            <LogoCompleto className="relative h-auto w-[62%]" />
           </div>
 
-          <div className="absolute -left-3 bottom-6 right-6 rounded-2xl border border-linea bg-crema p-5 shadow-xl shadow-tinta/10 sm:-left-8">
-            <p className="font-display text-lg font-medium text-tinta">{doctor.nombre}</p>
-            <p className="text-sm text-tinta-suave">
-              {doctor.titulo} · COP {doctor.cop}
-            </p>
-            <div className="mt-4 grid gap-2 text-sm text-tinta-suave">
-              <p className="flex items-center gap-2">
-                <IconoReloj className="size-4 shrink-0 text-marca" />
-                {horarioResumen}
-              </p>
-              <p className="flex items-center gap-2">
-                <IconoPin className="size-4 shrink-0 text-marca" />
-                {clinica.direccion.distrito}, {clinica.direccion.ciudad}
+          <div className="absolute -bottom-6 -left-2 flex items-center gap-4 rounded-2xl bg-white p-4 pr-6 shadow-lift ring-1 ring-line/60 sm:-left-8">
+            <span className="grid size-12 shrink-0 place-items-center rounded-full bg-primary font-display text-sm font-bold text-dark">
+              Dr.
+            </span>
+            <div>
+              <p className="font-display text-[0.95rem] font-semibold text-dark">{doctor.nombre}</p>
+              <p className="text-sm text-muted">
+                {doctor.titulo} · COP {doctor.cop}
               </p>
             </div>
           </div>

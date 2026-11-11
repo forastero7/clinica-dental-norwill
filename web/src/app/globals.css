@@ -1,53 +1,124 @@
 @import "tailwindcss";
 
 /*
- * Paleta provisional (los colores de marca aún no están definidos).
- * Para cambiarla basta con editar estas variables.
+ * Identidad visual de Norwil Consultorio Dental.
+ * Colores extraídos del logotipo oficial (docs/marca/logo-norwil-original.jpg).
+ * Para ajustar la marca basta con editar estas variables.
  */
 :root {
-  --crema: #faf7f2;
-  --arena: #f1ebe1;
-  --tinta: #1d2b2a;
-  --tinta-suave: #4b5a58;
-  --marca: #0f5c5a;
-  --marca-oscura: #0a403f;
-  --marca-clara: #d9ebe8;
-  --acento: #e0835e;
-  --linea: #e3dccf;
+  /* Verde del logotipo. Contraste 2.1:1 sobre blanco: úsalo en fondos, botones e íconos, no en texto. */
+  --color-primary: #adbb2d;
+  --color-primary-hover: #9cab22;
+  /* Verde de la misma familia con contraste AA (6.1:1) para textos y enlaces. */
+  --color-primary-strong: #5c6810;
+  /* Tinte suave del verde para fondos destacados. */
+  --color-primary-soft: #f4f7e3;
+
+  --color-dark: #333333;
+  --color-muted: #5f6368;
+  --color-white: #ffffff;
+  --color-light: #fafafa;
+  --color-neutral: #f2f2f2;
+  --color-line: #e6e6e6;
+
+  --shadow-soft: 0 1px 2px rgb(51 51 51 / 0.04), 0 10px 30px -12px rgb(51 51 51 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(51 51 51 / 0.05), 0 22px 44px -18px rgb(51 51 51 / 0.22);
 }
 
 @theme inline {
-  --color-crema: var(--crema);
-  --color-arena: var(--arena);
-  --color-tinta: var(--tinta);
-  --color-tinta-suave: var(--tinta-suave);
-  --color-marca: var(--marca);
-  --color-marca-oscura: var(--marca-oscura);
-  --color-marca-clara: var(--marca-clara);
-  --color-acento: var(--acento);
-  --color-linea: var(--linea);
-  --font-sans: var(--font-jakarta);
-  --font-display: var(--font-fraunces);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-strong: var(--color-primary-strong);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-dark: var(--color-dark);
+  --color-muted: var(--color-muted);
+  --color-light: var(--color-light);
+  --color-neutral: var(--color-neutral);
+  --color-line: var(--color-line);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-montserrat);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background: var(--crema);
-  color: var(--tinta);
+  background: var(--color-white);
+  color: var(--color-dark);
 }
 
 :focus-visible {
-  outline: 2px solid var(--acento);
+  outline: 2px solid var(--color-primary-strong);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
+}
+
+/* Utilidades de marca reutilizables */
+@utility contenedor {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-[0.18em] text-primary-strong;
+  &::before {
+    content: "";
+    @apply h-0.5 w-6 rounded-full bg-primary;
+  }
+}
+
+@utility titulo-seccion {
+  @apply font-display text-3xl font-semibold leading-tight tracking-tight text-dark sm:text-4xl lg:text-[2.75rem];
+}
+
+@utility btn-primario {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 font-display text-[0.95rem] font-semibold text-dark shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lift;
+}
+
+@utility btn-secundario {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-white px-7 py-3.5 font-display text-[0.95rem] font-semibold text-dark transition-all duration-200 hover:border-primary hover:text-primary-strong;
+}
+
+@utility tarjeta {
+  @apply rounded-2xl border border-line/70 bg-white shadow-soft;
+}
+
+@utility campo {
+  @apply mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-dark transition-colors placeholder:text-muted/60 focus:border-primary focus:ring-4 focus:ring-primary/20 focus:outline-none;
+}
+
+/* Animación discreta al entrar en pantalla (sin JavaScript; se omite si el navegador no la soporta). */
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .revelar {
+      animation: revelar linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }

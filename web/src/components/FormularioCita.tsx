@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
-import { tratamientos } from "@/content/clinica";
+import { clinica, tratamientos } from "@/content/clinica";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { IconoWhatsapp } from "./iconos";
 
@@ -33,7 +33,7 @@ export function FormularioCita() {
       : "lo antes posible";
 
     const lineas = [
-      "Hola, quisiera reservar una cita en Clínica Dental Norwill.",
+      `Hola, quisiera reservar una cita en ${clinica.nombreCompleto}.`,
       `• Nombre: ${nombre}`,
       `• Tratamiento: ${datos.get("tratamiento")}`,
       `• Fecha preferida: ${fechaTexto}`,
@@ -45,24 +45,29 @@ export function FormularioCita() {
     window.open(whatsappUrl(lineas.join("\n")), "_blank", "noopener,noreferrer");
   }
 
-  const campo =
-    "mt-1.5 w-full rounded-xl border border-linea bg-white px-4 py-3 text-base text-tinta placeholder:text-tinta-suave/60 focus:border-marca focus:outline-none focus:ring-2 focus:ring-marca/20";
-  const etiqueta = "text-sm font-semibold text-tinta";
+  const etiqueta = "font-display text-sm font-semibold text-dark";
 
   return (
-    <form onSubmit={enviar} noValidate className="rounded-3xl bg-crema p-6 text-tinta shadow-2xl shadow-black/20 sm:p-8">
-      <h3 className="font-display text-2xl font-medium">Solicita tu cita</h3>
-      <p className="mt-1 text-sm text-tinta-suave">Te respondemos por WhatsApp con los horarios disponibles.</p>
+    <form onSubmit={enviar} noValidate className="rounded-3xl bg-white p-6 text-dark shadow-lift sm:p-9">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h3 className="font-display text-2xl font-semibold">Solicita tu cita</h3>
+          <p className="mt-1.5 text-sm text-muted">Te respondemos por WhatsApp con los horarios disponibles.</p>
+        </div>
+        <span className="hidden size-11 shrink-0 place-items-center rounded-full bg-primary-soft text-primary-strong sm:grid">
+          <IconoWhatsapp className="size-5" />
+        </span>
+      </div>
 
-      <div className="mt-6 grid gap-4">
+      <div className="mt-7 grid gap-5">
         <label className="block">
           <span className={etiqueta}>Nombre completo</span>
-          <input name="nombre" autoComplete="name" required className={campo} placeholder="Ej. María Quispe" />
+          <input name="nombre" autoComplete="name" required className="campo" placeholder="Ej. María Quispe" />
         </label>
 
         <label className="block">
           <span className={etiqueta}>Tratamiento</span>
-          <select name="tratamiento" className={campo} defaultValue={tratamientos[0].nombre}>
+          <select name="tratamiento" className="campo" defaultValue={tratamientos[0].nombre}>
             {tratamientos.map((t) => (
               <option key={t.id}>{t.nombre}</option>
             ))}
@@ -70,14 +75,14 @@ export function FormularioCita() {
           </select>
         </label>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           <label className="block">
             <span className={etiqueta}>Fecha preferida</span>
-            <input type="date" name="fecha" className={campo} />
+            <input type="date" name="fecha" className="campo" />
           </label>
           <label className="block">
             <span className={etiqueta}>Turno</span>
-            <select name="turno" className={campo} defaultValue="Cualquiera">
+            <select name="turno" className="campo" defaultValue="Cualquiera">
               <option>Cualquiera</option>
               <option>Mañana</option>
               <option>Tarde</option>
@@ -87,16 +92,16 @@ export function FormularioCita() {
 
         <label className="block">
           <span className={etiqueta}>
-            Comentario <span className="font-normal text-tinta-suave">(opcional)</span>
+            Comentario <span className="font-sans font-normal text-muted">(opcional)</span>
           </span>
-          <textarea name="comentario" rows={2} className={campo} placeholder="Ej. tengo dolor en una muela" />
+          <textarea name="comentario" rows={2} className="campo resize-none" placeholder="Ej. tengo dolor en una muela" />
         </label>
 
-        <label className="flex items-start gap-3 text-sm text-tinta-suave">
-          <input type="checkbox" name="consentimiento" className="mt-0.5 size-5 shrink-0 accent-marca" />
+        <label className="flex cursor-pointer items-start gap-3 text-sm text-muted">
+          <input type="checkbox" name="consentimiento" className="mt-0.5 size-5 shrink-0 accent-[#5c6810]" />
           <span>
             Autorizo el uso de mis datos para gestionar mi cita, según la{" "}
-            <Link href="/politica-de-privacidad" className="font-medium text-marca underline underline-offset-2">
+            <Link href="/politica-de-privacidad" className="font-medium text-primary-strong underline underline-offset-2">
               política de privacidad
             </Link>
             .
@@ -105,15 +110,12 @@ export function FormularioCita() {
       </div>
 
       {error && (
-        <p role="alert" className="mt-4 rounded-lg bg-acento/15 px-4 py-2.5 text-sm font-medium text-tinta">
+        <p role="alert" className="mt-5 rounded-xl border border-primary/50 bg-primary-soft px-4 py-3 text-sm font-medium text-dark">
           {error}
         </p>
       )}
 
-      <button
-        type="submit"
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-marca px-6 py-4 text-base font-semibold text-crema transition-colors hover:bg-marca-oscura"
-      >
+      <button type="submit" className="btn-primario mt-7 w-full !py-4">
         <IconoWhatsapp className="size-5" />
         Enviar por WhatsApp
       </button>

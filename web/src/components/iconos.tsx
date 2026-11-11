@@ -1,14 +1,19 @@
+// Set de íconos de trazo uniforme (1.8 px, extremos redondeados) para toda la web.
 type P = { className?: string };
 
-export function IconoDiente({ className }: P) {
+function Trazo({ className, children }: P & { children: React.ReactNode }) {
   return (
-    <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" className={className}>
-      <path
-        d="M21 10c-7 0-11 6-11 13 0 8 4 12 5 20 1 7 3 13 7 13s4-6 5-12c1-4 2-7 5-7s4 3 5 7c1 6 1 12 5 12s6-6 7-13c1-8 5-12 5-20 0-7-4-13-11-13-5 0-7 2-11 2s-6-2-11-2z"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinejoin="round"
-      />
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      {children}
     </svg>
   );
 }
@@ -21,44 +26,113 @@ export function IconoWhatsapp({ className }: P) {
   );
 }
 
-export function IconoReloj({ className }: P) {
+export function IconoReloj(p: P) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true" className={className}>
+    <Trazo {...p}>
       <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 2" strokeLinecap="round" />
-    </svg>
+      <path d="M12 7v5l3 2" />
+    </Trazo>
   );
 }
 
-export function IconoPin({ className }: P) {
+export function IconoPin(p: P) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true" className={className}>
+    <Trazo {...p}>
       <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
       <circle cx="12" cy="9.5" r="2.5" />
-    </svg>
+    </Trazo>
   );
 }
 
-export function IconoCheck({ className }: P) {
+export function IconoCheck(p: P) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true" className={className}>
-      <path d="M5 12.5l4.5 4.5L19 7.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <Trazo {...p}>
+      <path d="M5 12.5l4.5 4.5L19 7.5" />
+    </Trazo>
   );
 }
 
-export function IconoMenu({ className }: P) {
+export function IconoMenu(p: P) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className={className}>
-      <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-    </svg>
+    <Trazo {...p}>
+      <path d="M4 7h16M4 12h16M4 17h10" />
+    </Trazo>
   );
 }
 
-export function IconoCerrar({ className }: P) {
+export function IconoCerrar(p: P) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className={className}>
-      <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-    </svg>
+    <Trazo {...p}>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </Trazo>
+  );
+}
+
+export function IconoUsuario(p: P) {
+  return (
+    <Trazo {...p}>
+      <circle cx="12" cy="8" r="3.5" />
+      <path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5" />
+    </Trazo>
+  );
+}
+
+export function IconoDocumento(p: P) {
+  return (
+    <Trazo {...p}>
+      <path d="M7 3h7l4 4v14H7z" />
+      <path d="M14 3v4h4M10 12h5M10 16h5" />
+    </Trazo>
+  );
+}
+
+export function IconoEscudo(p: P) {
+  return (
+    <Trazo {...p}>
+      <path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z" />
+      <path d="M9 12l2 2 4-4" />
+    </Trazo>
+  );
+}
+
+export function IconoCalendario(p: P) {
+  return (
+    <Trazo {...p}>
+      <rect x="4" y="5" width="16" height="15" rx="2.5" />
+      <path d="M8 3v4M16 3v4M4 10h16" />
+    </Trazo>
+  );
+}
+
+export function IconoFlecha(p: P) {
+  return (
+    <Trazo {...p}>
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </Trazo>
+  );
+}
+
+export function IconoMas(p: P) {
+  return (
+    <Trazo {...p}>
+      <path d="M12 5v14M5 12h14" />
+    </Trazo>
+  );
+}
+
+export function IconoCorreo(p: P) {
+  return (
+    <Trazo {...p}>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <path d="M4 7l8 6 8-6" />
+    </Trazo>
+  );
+}
+
+export function IconoTelefono(p: P) {
+  return (
+    <Trazo {...p}>
+      <path d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L16 14l4 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+    </Trazo>
   );
 }

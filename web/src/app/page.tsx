@@ -1,4 +1,5 @@
 import { BotonWhatsapp } from "@/components/BotonWhatsapp";
+import { Consultorio } from "@/components/Consultorio";
 import { Doctor } from "@/components/Doctor";
 import { Encabezado } from "@/components/Encabezado";
 import { Pie } from "@/components/Pie";
@@ -51,13 +52,14 @@ export default function Inicio() {
       />
       <a
         href="#contenido"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow-lift"
       >
         Saltar al contenido
       </a>
       <Encabezado />
       <main id="contenido">
         <Portada />
+        <Consultorio />
         <Tratamientos />
         <Doctor />
         <Reservar />

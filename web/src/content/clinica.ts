@@ -1,16 +1,16 @@
 /**
- * Contenido editable de la landing de Clínica Dental Norwill.
+ * Contenido editable de la landing de Norwil Consultorio Dental.
  *
  * Todo lo que diga "PENDIENTE" debe confirmarse con el cliente antes de publicar:
  * número de WhatsApp, dirección, datos del doctor, RUC y horarios.
  */
 
 export const clinica = {
-  nombre: "Norwill",
-  nombreCompleto: "Clínica Dental Norwill",
+  nombre: "Norwil",
+  nombreCompleto: "Norwil Consultorio Dental",
   eslogan: "Odontología cercana, sin apuros",
   descripcion:
-    "Clínica dental en Lima con atención personalizada: un solo especialista te acompaña desde la evaluación hasta el control final. Presupuesto por escrito y citas por WhatsApp.",
+    "Consultorio dental en Lima con atención personalizada: un solo especialista te acompaña desde la evaluación hasta el control final. Presupuesto por escrito y citas por WhatsApp.",
 
   // PENDIENTE: número real (formato internacional sin "+" ni espacios). Aún no hay WhatsApp Business;
   // un número de WhatsApp normal funciona igual con los enlaces wa.me.

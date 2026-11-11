@@ -20,20 +20,24 @@ const pasos = [
 
 export function Reservar() {
   return (
-    <section id="reservar" className="bg-marca-oscura text-crema">
-      <div className="mx-auto grid max-w-6xl gap-14 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:py-28">
+    <section id="reservar" className="relative overflow-hidden bg-dark text-white">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-56 -left-40 size-[36rem] rounded-full border-[18px] border-primary/15"
+      />
+      <div className="contenedor relative grid gap-14 py-20 lg:grid-cols-2 lg:gap-20 lg:py-28">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-acento">Cómo reservar</p>
-          <h2 className="mt-3 font-display text-4xl font-medium tracking-tight sm:text-5xl">
-            Tu cita en tres pasos
-          </h2>
-          <ol className="mt-10 space-y-8">
+          <p className="eyebrow !text-primary">Cómo reservar</p>
+          <h2 className="titulo-seccion mt-4 !text-white">Tu cita en tres pasos</h2>
+          <ol className="mt-12 space-y-9">
             {pasos.map((p) => (
               <li key={p.n} className="flex gap-5">
-                <span className="font-display text-3xl font-medium text-acento">{p.n}</span>
+                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-primary font-display text-sm font-bold text-dark">
+                  {p.n}
+                </span>
                 <div>
-                  <h3 className="text-lg font-semibold">{p.titulo}</h3>
-                  <p className="mt-1 leading-relaxed text-crema/75">{p.texto}</p>
+                  <h3 className="font-display text-lg font-semibold">{p.titulo}</h3>
+                  <p className="mt-1.5 leading-relaxed text-white/70">{p.texto}</p>
                 </div>
               </li>
             ))}

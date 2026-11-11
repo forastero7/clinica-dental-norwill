@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PaginaLegal } from "@/components/PaginaLegal";
+import { AvisoBorrador, PaginaLegal } from "@/components/PaginaLegal";
 import { clinica } from "@/content/clinica";
 
 export const metadata: Metadata = {
@@ -32,18 +32,18 @@ export default function LibroReclamaciones() {
 
       <h2>Cómo presentar un reclamo o queja</h2>
       <p>
-        Puedes solicitar el Libro de Reclamaciones físico en la clínica o escribirnos a{" "}
-        <a href={`mailto:${clinica.email}`} className="font-medium text-marca underline">
+        Puedes solicitar el Libro de Reclamaciones físico en el consultorio o escribirnos a{" "}
+        <a href={`mailto:${clinica.email}`}>
           {clinica.email}
         </a>{" "}
         indicando tu nombre, DNI, el detalle del reclamo y tu pedido. Daremos respuesta en un plazo no mayor a 15 días
         hábiles.
       </p>
 
-      <p className="rounded-xl border border-acento/40 bg-acento/10 p-4 text-sm text-tinta">
+      <AvisoBorrador>
         <strong>Formulario virtual en implementación.</strong> La hoja de reclamación en línea estará disponible antes
         del lanzamiento oficial del sitio.
-      </p>
+      </AvisoBorrador>
     </PaginaLegal>
   );
 }

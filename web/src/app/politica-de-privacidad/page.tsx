@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PaginaLegal } from "@/components/PaginaLegal";
+import { AvisoBorrador, PaginaLegal } from "@/components/PaginaLegal";
 import { clinica } from "@/content/clinica";
 
 export const metadata: Metadata = {
@@ -43,17 +43,17 @@ export default function PoliticaPrivacidad() {
       <h2>Tus derechos</h2>
       <p>
         Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición (ARCO) escribiendo a{" "}
-        <a href={`mailto:${clinica.email}`} className="font-medium text-marca underline">
+        <a href={`mailto:${clinica.email}`}>
           {clinica.email}
         </a>
         . Si consideras que no atendimos tu solicitud, puedes acudir a la Autoridad Nacional de Protección de Datos
         Personales.
       </p>
 
-      <p className="rounded-xl border border-acento/40 bg-acento/10 p-4 text-sm text-tinta">
+      <AvisoBorrador>
         <strong>Borrador provisional.</strong> Este texto debe ser revisado y completado por asesoría legal antes de
         la publicación del sitio.
-      </p>
+      </AvisoBorrador>
     </PaginaLegal>
   );
 }
