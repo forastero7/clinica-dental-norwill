@@ -16,7 +16,7 @@ export const clinica = {
   // un número de WhatsApp normal funciona igual con los enlaces wa.me.
   whatsapp: "51900000000",
   telefonoVisible: "+51 900 000 000",
-  email: "contacto@clinicanorwill.pe", // PENDIENTE
+  email: "contacto@consultorionorwil.pe", // PENDIENTE
 
   // PENDIENTE: dirección real. Mientras esté vacío mapsUrl, el enlace al mapa no se muestra.
   direccion: {
@@ -31,7 +31,7 @@ export const clinica = {
   razonSocial: "PENDIENTE S.A.C.", // PENDIENTE
   ruc: "20000000000", // PENDIENTE
 
-  sitioUrl: "https://clinicanorwill.pe", // PENDIENTE: dominio definitivo
+  sitioUrl: "https://consultorionorwil.pe", // PENDIENTE: dominio definitivo
 } as const;
 
 export const horario = [

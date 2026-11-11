@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://clinicanorwill.pe/sitemap.xml
+Sitemap: https://consultorionorwil.pe/sitemap.xml

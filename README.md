@@ -11,7 +11,6 @@ Stack previsto para las siguientes fases: NestJS (API), PostgreSQL, Redis + Bull
 
 - Número de WhatsApp, dirección, horario y enlace de Google Maps
 - Nombre, colegiatura (COP), foto y biografía del doctor
-- Nombre exacto de la marca: el logo dice "NORWIL" (una L); la web usa esa forma
 - Fotos del consultorio y del doctor
 - Razón social, RUC y dominio
 - Revisión legal de la política de privacidad; formulario virtual del Libro de Reclamaciones (requiere backend)
