@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { tratamientos, type Tratamiento } from "@/content/clinica";
-import { formatoSoles, whatsappUrl } from "@/lib/whatsapp";
+import { whatsappUrl } from "@/lib/whatsapp";
 import { IconoReloj } from "./iconos";
 
 const categorias = ["Todos", "Prevención", "Restauración", "Estética", "Especialidades"] as const;
@@ -19,11 +19,11 @@ export function Tratamientos() {
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-acento">Tratamientos</p>
             <h2 className="mt-3 font-display text-4xl font-medium tracking-tight text-tinta sm:text-5xl">
-              Precios claros desde el inicio
+              Cuidamos tu sonrisa de principio a fin
             </h2>
             <p className="mt-4 text-lg text-tinta-suave">
-              Publicamos precios referenciales para que llegues informado. El costo final se confirma tras la
-              evaluación, con presupuesto por escrito.
+              Desde la limpieza de rutina hasta implantes y ortodoncia. Tras la evaluación te entregamos un
+              presupuesto por escrito, sin compromiso.
             </p>
           </div>
 
@@ -51,10 +51,6 @@ export function Tratamientos() {
             <TarjetaTratamiento key={t.id} t={t} />
           ))}
         </ul>
-
-        <p className="mt-8 text-sm text-tinta-suave">
-          * Precios en soles, incluyen IGV. Referenciales y sujetos a evaluación clínica.
-        </p>
       </div>
     </section>
   );
@@ -72,20 +68,15 @@ function TarjetaTratamiento({ t }: { t: Tratamiento }) {
       </div>
       <h3 className="mt-5 font-display text-xl font-medium text-tinta">{t.nombre}</h3>
       <p className="mt-2 flex-1 text-[0.95rem] leading-relaxed text-tinta-suave">{t.descripcion}</p>
-      <div className="mt-6 flex items-end justify-between gap-4 border-t border-linea pt-5">
-        <p className="leading-tight">
-          {t.desde && <span className="block text-xs text-tinta-suave">desde</span>}
-          <span className="font-display text-2xl font-semibold text-tinta">{formatoSoles(t.precio)}</span>
-          {t.unidad && <span className="ml-1 text-xs text-tinta-suave">{t.unidad}</span>}
-        </p>
+      <div className="mt-6 border-t border-linea pt-4">
         <a
           href={whatsappUrl(`Hola, quisiera información y una cita para: ${t.nombre}.`)}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full px-3 py-2 text-sm font-semibold text-marca underline-offset-4 hover:underline"
+          className="-mx-3 inline-block rounded-full px-3 py-2 text-sm font-semibold text-marca underline-offset-4 hover:underline"
           aria-label={`Consultar por ${t.nombre} en WhatsApp`}
         >
-          Consultar →
+          Consultar por WhatsApp →
         </a>
       </div>
     </li>

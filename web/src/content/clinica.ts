@@ -2,7 +2,7 @@
  * Contenido editable de la landing de Clínica Dental Norwill.
  *
  * Todo lo que diga "PENDIENTE" debe confirmarse con el cliente antes de publicar:
- * número de WhatsApp, dirección, datos del doctor, RUC, horarios y precios finales.
+ * número de WhatsApp, dirección, datos del doctor, RUC y horarios.
  */
 
 export const clinica = {
@@ -10,7 +10,7 @@ export const clinica = {
   nombreCompleto: "Clínica Dental Norwill",
   eslogan: "Odontología cercana, sin apuros",
   descripcion:
-    "Clínica dental en Lima con atención personalizada: un solo especialista te acompaña desde la evaluación hasta el control final. Precios referenciales publicados y citas por WhatsApp.",
+    "Clínica dental en Lima con atención personalizada: un solo especialista te acompaña desde la evaluación hasta el control final. Presupuesto por escrito y citas por WhatsApp.",
 
   // PENDIENTE: número real (formato internacional sin "+" ni espacios). Aún no hay WhatsApp Business;
   // un número de WhatsApp normal funciona igual con los enlaces wa.me.
@@ -67,13 +67,9 @@ export type Tratamiento = {
   categoria: "Prevención" | "Restauración" | "Estética" | "Especialidades";
   descripcion: string;
   duracion: string;
-  /** Precio referencial en soles. `desde: true` muestra "desde S/". */
-  precio: number;
-  desde?: boolean;
-  unidad?: string;
 };
 
-/** Precios referenciales del mercado limeño. PENDIENTE: validar con el doctor. */
+/** PENDIENTE: validar la lista de tratamientos con el doctor. */
 export const tratamientos: Tratamiento[] = [
   {
     id: "evaluacion",
@@ -81,7 +77,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Prevención",
     descripcion: "Revisión completa, diagnóstico y plan de tratamiento con presupuesto por escrito.",
     duracion: "30 min",
-    precio: 50,
   },
   {
     id: "limpieza",
@@ -89,7 +84,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Prevención",
     descripcion: "Retiro de sarro y placa con ultrasonido, pulido y aplicación de flúor.",
     duracion: "45 min",
-    precio: 120,
   },
   {
     id: "radiografia",
@@ -97,7 +91,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Prevención",
     descripcion: "Imagen de una o dos piezas para detectar caries, infecciones o fracturas.",
     duracion: "10 min",
-    precio: 25,
   },
   {
     id: "resina",
@@ -105,9 +98,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Restauración",
     descripcion: "Restauración del color del diente para caries pequeñas y medianas.",
     duracion: "45 min",
-    precio: 100,
-    desde: true,
-    unidad: "por pieza",
   },
   {
     id: "endodoncia",
@@ -115,9 +105,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Restauración",
     descripcion: "Tratamiento de conducto para salvar un diente con el nervio dañado.",
     duracion: "1–2 sesiones",
-    precio: 350,
-    desde: true,
-    unidad: "por pieza",
   },
   {
     id: "extraccion",
@@ -125,8 +112,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Restauración",
     descripcion: "Extracción con anestesia local e indicaciones para una recuperación tranquila.",
     duracion: "30 min",
-    precio: 80,
-    desde: true,
   },
   {
     id: "blanqueamiento",
@@ -134,7 +119,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Estética",
     descripcion: "Aclarado en consultorio con protección de encías, en una sola sesión.",
     duracion: "90 min",
-    precio: 450,
   },
   {
     id: "carillas",
@@ -142,9 +126,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Estética",
     descripcion: "Corrigen forma, color y pequeños espacios sin desgastar de más el diente.",
     duracion: "Según caso",
-    precio: 250,
-    desde: true,
-    unidad: "por pieza",
   },
   {
     id: "ortodoncia",
@@ -152,8 +133,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Especialidades",
     descripcion: "Brackets metálicos o estéticos con controles mensuales. Facilidades de pago.",
     duracion: "12–24 meses",
-    precio: 2500,
-    desde: true,
   },
   {
     id: "implante",
@@ -161,8 +140,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Especialidades",
     descripcion: "Reemplazo fijo de una pieza perdida con implante de titanio y corona.",
     duracion: "3–6 meses",
-    precio: 3500,
-    desde: true,
   },
   {
     id: "corona",
@@ -170,9 +147,6 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Especialidades",
     descripcion: "Funda de porcelana o zirconio para proteger un diente debilitado.",
     duracion: "2 sesiones",
-    precio: 800,
-    desde: true,
-    unidad: "por pieza",
   },
   {
     id: "odontopediatria",
@@ -180,14 +154,13 @@ export const tratamientos: Tratamiento[] = [
     categoria: "Especialidades",
     descripcion: "Primera visita amable, sellantes y flúor para cuidar los dientes desde pequeños.",
     duracion: "30 min",
-    precio: 60,
   },
 ];
 
 export const preguntas = [
   {
-    p: "¿Los precios publicados son finales?",
-    r: "Son referenciales. El costo final depende de lo que encontremos en la evaluación; antes de empezar te damos el presupuesto por escrito y no cobramos nada que no hayas aprobado.",
+    p: "¿Cuánto cuesta mi tratamiento?",
+    r: "Depende de lo que encontremos en la evaluación. Antes de empezar te damos el presupuesto por escrito y no cobramos nada que no hayas aprobado. Si quieres una idea previa, escríbenos por WhatsApp.",
   },
   {
     p: "¿Cómo reservo una cita?",

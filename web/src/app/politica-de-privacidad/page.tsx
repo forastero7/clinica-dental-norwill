@@ -26,7 +26,7 @@ export default function PoliticaPrivacidad() {
       <h2>Para qué los usamos</h2>
       <ul>
         <li>Coordinar, confirmar y recordarte tus citas.</li>
-        <li>Responder tus consultas sobre tratamientos y precios.</li>
+        <li>Responder tus consultas sobre tratamientos.</li>
         <li>Cumplir obligaciones legales, como la historia clínica y la emisión de comprobantes.</li>
       </ul>
       <p>

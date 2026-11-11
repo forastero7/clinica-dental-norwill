@@ -17,7 +17,6 @@ const jsonLd = {
   url: clinica.sitioUrl,
   telephone: clinica.telefonoVisible,
   email: clinica.email,
-  priceRange: "S/ 25 – S/ 3500",
   currenciesAccepted: "PEN",
   address: {
     "@type": "PostalAddress",
@@ -39,11 +38,6 @@ const jsonLd = {
     itemListElement: tratamientos.map((t) => ({
       "@type": "Offer",
       itemOffered: { "@type": "MedicalProcedure", name: t.nombre, description: t.descripcion },
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        priceCurrency: "PEN",
-        ...(t.desde ? { minPrice: t.precio } : { price: t.precio }),
-      },
     })),
   },
 };

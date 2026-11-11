@@ -25,7 +25,7 @@ PAGES_BASE_PATH=/clinica-dental-norwill npm run build
 
 | Qué | Archivo |
 |---|---|
-| Datos de la clínica, WhatsApp, dirección, horario, doctor, tratamientos, precios y preguntas frecuentes | `src/content/clinica.ts` |
+| Datos de la clínica, WhatsApp, dirección, horario, doctor, tratamientos y preguntas frecuentes | `src/content/clinica.ts` |
 | Colores de marca (paleta provisional) | variables en `src/app/globals.css` |
 | Secciones de la página | `src/components/` |
 | Política de privacidad y Libro de Reclamaciones | `src/app/politica-de-privacidad`, `src/app/libro-de-reclamaciones` |

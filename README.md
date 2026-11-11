@@ -12,6 +12,5 @@ Stack previsto para las siguientes fases: NestJS (API), PostgreSQL, Redis + Bull
 - Número de WhatsApp, dirección, horario y enlace de Google Maps
 - Nombre, colegiatura (COP), foto y biografía del doctor
 - Logo, colores de marca y fotos del consultorio
-- Precios finales de los tratamientos
 - Razón social, RUC y dominio
 - Revisión legal de la política de privacidad; formulario virtual del Libro de Reclamaciones (requiere backend)

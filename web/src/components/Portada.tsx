@@ -21,8 +21,8 @@ export function Portada() {
             Tu sonrisa, atendida <em className="font-normal text-marca">con calma</em> y sin apuros.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-tinta-suave">
-            Odontología general y estética con un trato cercano. Conoce los precios referenciales antes de venir y
-            reserva tu cita por WhatsApp en minutos.
+            Odontología general y estética con un trato cercano. Te explicamos cada opción antes de empezar y
+            reservas tu cita por WhatsApp en minutos.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -39,7 +39,7 @@ export function Portada() {
               href="#tratamientos"
               className="inline-flex items-center justify-center rounded-full border border-tinta/15 bg-white/50 px-7 py-4 text-base font-semibold text-tinta transition-colors hover:border-marca hover:text-marca"
             >
-              Ver tratamientos y precios
+              Ver tratamientos
             </a>
           </div>
 
